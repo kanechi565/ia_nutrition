@@ -72,5 +72,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-# authentification 
+# authentification
 gem "devise"
+# llm ia gem
+gem "ruby_llm"

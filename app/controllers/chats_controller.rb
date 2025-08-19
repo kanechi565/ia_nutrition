@@ -1,2 +1,25 @@
 class ChatsController < ApplicationController
+
+  def new #on passe à l'ia l'objetif actuel, et on lui dit d'être un pro dans ce domaine.
+    # Dans ce chat on pourra échanger des messages avec lui
+    @chat = Chat.new
+    @objective = Objective.find(params[:objective_id])
+  end
+
+  def create
+    @chat = Chat.new(chat_params)
+    @objective = Objective.find(params[:objective_id])
+    @chat.objective = @objective
+    if @chat.save!
+      redirect_to objective_chat_path, notice: "let's go to chat ;)"
+    else
+      render new:, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def chat_params
+    params.require(:chat).permit(:name)
+  end
 end

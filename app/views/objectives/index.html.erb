@@ -2,11 +2,26 @@
 <br>
 
 <% @objectives.each do |objective| %>
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-   <div class="card-product-infos">
-<%= link_to objective.name, objective_path(objective) %>
-<%= objective.description %>
- </div>
-   </div>
+  <div class="card-product mx-5">
+
+    <% if objective.description == "Je souhaite suivre un programme adapté pour favoriser ma perte de poids." %>
+      <i class="fa-solid fa-dumbbell"></i>
+    <% elsif objective.description == "Mon objectif principal en ce moment est la prise de masse musculaire." %>
+      <i class="fa-solid fa-dumbbell"></i>
+    <% elsif objective.description == "Étant végétarien, je recherche des repas équilibrés sans viande ni poisson." %>
+      <i class="fa-solid fa-dumbbell"></i>
+    <% elsif objective.description == "Mon alimentation est entièrement vegan, je ne consomme donc aucun produit d’origine animale." %>
+      <i class="fa-solid fa-dumbbell"></i>
+    <% elsif objective.description == "Un planning de repas hebdomadaire m’aiderait à mieux organiser mon alimentation." %>
+      <i class="fa-solid fa-dumbbell"></i>
+    <% elsif objective.description == "Je me considère flexitarien, car je limite la viande mais j’en consomme encore occasionnellement" %>
+      <i class="fa-solid fa-dumbbell"></i>
+    <% end %>
+
+    <div class="card-product-infos">
+      <%= link_to objective.name, objective_path(objective) %>
+        <br>
+      <%= objective.description %>
+    </div>
+  </div>
 <% end %>

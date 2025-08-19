@@ -1,0 +1,6 @@
+<h1>Crée ton objectif</h1>
+  <%= simple_form_for @objective do |f| %>
+  <%= f.input :name, input_html: { class: "border border-dark" } %>
+  <%= f.input :description, input_html: { class: "border border-dark" } %>
+  <%= f.button :submit, "Enregistrer", class:"btn btn-primary" %>
+<% end %>

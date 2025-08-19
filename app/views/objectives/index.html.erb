@@ -2,8 +2,11 @@
 <br>
 
 <% @objectives.each do |objective| %>
-
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+   <div class="card-product-infos">
 <%= link_to objective.name, objective_path(objective) %>
 <%= objective.description %>
-
+ </div>
+   </div>
 <% end %>

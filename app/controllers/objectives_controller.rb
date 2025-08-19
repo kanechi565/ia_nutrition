@@ -1,4 +1,9 @@
 class ObjectivesController < ApplicationController
+  before_action :authenticate_user!
+  def index
+    @objectives = current_user.objectives
+  end
+
   def new
     @objective = Objective.new
   end

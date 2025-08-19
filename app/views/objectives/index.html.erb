@@ -1,0 +1,9 @@
+<h1> Liste des objectifs</h1>
+<br>
+
+<% @objectives.each do |objective| %>
+
+<%= link_to objective.name, objective_path(objective) %>
+<%= objective.description %>
+
+<% end %>

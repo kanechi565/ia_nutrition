@@ -6,6 +6,6 @@ class ObjectivesControllerTest < ActionDispatch::IntegrationTest
   # end
 
   def index
-    @objectives = Objective.all
+    @objectives = current_user.objectives
   end
 end

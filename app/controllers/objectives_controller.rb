@@ -1,4 +1,7 @@
 class ObjectivesController < ApplicationController
+
+  before_action :set_objective, only: [:show]
+
   def new
     @objective = Objective.new
   end
@@ -11,9 +14,17 @@ class ObjectivesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-private
+
+  def show
+  end
+
+  private
 
   def objective_params
     params.require(:objective).permit(:name, :description)
+  end
+
+  def set_objective
+    @objective = Objective.find(params[:id])
   end
 end

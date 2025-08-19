@@ -16,10 +16,9 @@ user1 = User.create!(name: 'Jonathan', email: "Jonathan@gmail.com",
 user2 = User.create!(name: 'Charles', email: "Charles@gmail.com", password: "password4",
    height: 183, weight: 79.3, gender: "homme", age: 27)
 
-
 puts "reation d'objectif"
 
-Objective.create!(name: "perte de poids", description:"perte de poids intensive pour remise en forme", user:user1)
-Objective.create!(name: "prise de masse", description:"prise de masse intensive", user:user2)
+Objective.create!(name: "perte de poids", description: "perte de poids intensive pour remise en forme", user: user1)
+Objective.create!(name: "prise de masse", description: "prise de masse intensive", user: user2)
 
 puts "seeds done"

@@ -11,6 +11,7 @@ class ObjectivesController < ApplicationController
 
   def create
     @objective = Objective.new(objective_params)
+    @objective.user = current_user
     if @objective.save!
       redirect_to objective_path(@objective), notice: "Objectif crée"
     else

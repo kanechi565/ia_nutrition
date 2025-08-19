@@ -1,0 +1,6 @@
+<div class="container">
+  <%= simple_form_for [@objective, @chat] do |f| %>
+    <%= f.input :name, label: false %>
+    <%= f.button :submit, "Confirme ta première requête", class: "btn btn-primary" %>
+  <% end %>
+</div>

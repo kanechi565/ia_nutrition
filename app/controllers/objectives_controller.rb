@@ -6,7 +6,7 @@ class ObjectivesController < ApplicationController
   def create
     @objective = Objective.new(objective_params)
     if @objective.save!
-      redirect_to objectives_path, notice: "objectif crée"
+      redirect_to objective_path(@objective), notice: "Objectif crée"
     else
       render :new, status: :unprocessable_entity
     end

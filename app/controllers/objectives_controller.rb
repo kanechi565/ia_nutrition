@@ -1,5 +1,6 @@
 class ObjectivesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_objective, only: [:show]
   def index
     @objectives = current_user.objectives
   end
@@ -16,9 +17,17 @@ class ObjectivesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-private
+
+  def show
+  end
+
+  private
 
   def objective_params
     params.require(:objective).permit(:name, :description)
+  end
+
+  def set_objective
+    @objective = Objective.find(params[:id])
   end
 end

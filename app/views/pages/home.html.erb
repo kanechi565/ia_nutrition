@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# <div class="container d-flex h-30">
+  <div class="content">
+    <h1>AI nutrition</h1>
+    <h2>  Votre guide nutrition et bien-être </h2>
+    <p>
+      Obtenez votre programme personnalisé
+      et commencez votre parcours vers une
+      vie plus saine et plus épanouie
+    </p>
+  </div>
+  <div class="image-big img-fluid max-width-50% h-auto">
+    <%= image_tag "nutrition_ai_logo.png", alt: "AI Nutrition Home" %>
+  <%# </div>
+</div>
+<p>
+  <%= link_to "Commencer", new_objective_path, class: "btn btn-primary" %>
+
+
+<div class="container text-center ">
+  <div class="row align-items-center">
+    <div class="col-md-6 text-md-start text-center">
+      <h2>Votre guide nutrition et bien-être</h2>
+      <p>
+        Obtenez votre programme personnalisé
+        et commencez votre parcours vers une
+        vie plus saine et plus épanouie
+      </p>
+      <div class="btn-commencer">
+        <%= link_to "Commencer", new_objective_path,
+            class: "btn btn-primary btn-lg px-5 py-3" %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <%= image_tag "nutrition_ai_logo.png",
+          alt: "AI Nutrition Home",
+          class: "img-fluid" %>
+    </div>
+  </div>
+</div>

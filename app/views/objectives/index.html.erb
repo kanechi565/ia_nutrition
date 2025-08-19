@@ -1,27 +1,26 @@
-<h1> Liste des objectifs</h1>
+<h1 class ="text-center "> Liste des objectifs </h1>
 <br>
-
-<% @objectives.each do |objective| %>
-  <div class="card-product mx-5">
-
-    <% if objective.description == "Je souhaite suivre un programme adapté pour favoriser ma perte de poids." %>
-      <i class="fa-solid fa-dumbbell"></i>
-    <% elsif objective.description == "Mon objectif principal en ce moment est la prise de masse musculaire." %>
-      <i class="fa-solid fa-dumbbell"></i>
-    <% elsif objective.description == "Étant végétarien, je recherche des repas équilibrés sans viande ni poisson." %>
-      <i class="fa-solid fa-dumbbell"></i>
-    <% elsif objective.description == "Mon alimentation est entièrement vegan, je ne consomme donc aucun produit d’origine animale." %>
-      <i class="fa-solid fa-dumbbell"></i>
-    <% elsif objective.description == "Un planning de repas hebdomadaire m’aiderait à mieux organiser mon alimentation." %>
-      <i class="fa-solid fa-dumbbell"></i>
-    <% elsif objective.description == "Je me considère flexitarien, car je limite la viande mais j’en consomme encore occasionnellement" %>
-      <i class="fa-solid fa-dumbbell"></i>
+<div class="d-flex flex-wrap justify-content-center gap-3">
+  <% @objectives.each do |objective| %>
+    <%= link_to objective_path(objective), class: "card text-center text-decoration-none text-dark
+    ", style: "width: 18rem; min-height: 200px;" do %>
+      <div class="card-body d-flex flex-column justify-content-center align-items-center b">
+        <% if objective.description == "Je souhaite suivre un programme adapté pour favoriser ma perte de poids." %>
+          <i class="fa-solid fa-weight-scale fa-2x mb-3"></i>
+        <% elsif objective.description == "Mon objectif principal en ce moment est la prise de masse musculaire." %>
+          <i class="fa-solid fa-dumbbell fa-2x mb-3"></i>
+        <% elsif objective.description == "Étant végétarien, je recherche des repas équilibrés sans viande ni poisson." %>
+          <i class="fa-solid fa-carrot fa-2x mb-3"></i>
+        <% elsif objective.description == "Mon alimentation est entièrement vegan, je ne consomme donc aucun produit d’origine animale." %>
+          <i class="fa-solid fa-leaf fa-2x mb-3"></i>
+        <% elsif objective.description == "Un planning de repas hebdomadaire m’aiderait à mieux organiser mon alimentation." %>
+          <i class="fa-solid fa-calendar fa-2x mb-3"></i>
+        <% elsif objective.description == "Je me considère flexitarien, car je limite la viande mais j’en consomme encore occasionnellement" %>
+          <i class="fa-solid fa-drumstick-bite fa-2x mb-3"></i>
+        <% end %>
+        <h5 class="card-title"><%= objective.name %></h5>
+        <p class="card-text"><%= objective.description %></p>
+      </div>
     <% end %>
-
-    <div class="card-product-infos">
-      <%= link_to objective.name, objective_path(objective) %>
-        <br>
-      <%= objective.description %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

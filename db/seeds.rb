@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts " nettoyer user"
+Chat.destroy_all
 Objective.destroy_all
 User.destroy_all
 

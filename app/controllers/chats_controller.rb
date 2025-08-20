@@ -11,15 +11,20 @@ class ChatsController < ApplicationController
     @objective = Objective.find(params[:objective_id])
     @chat.objective = @objective
     if @chat.save!
-      redirect_to objective_chat_path, notice: "let's go to chat ;)"
+      redirect_to chat_path(@chat), notice: "let's go to chat ;)"
     else
       render new:, status: :unprocessable_entity
     end
   end
 
+  def show
+    @chat = Chat.find(params[:id])
+    @message = Message.new
+  end
+
   private
 
   def chat_params
-    params.require(:chat).permit(:name)
+    params.require(:chat).permit(:name, :messages)
   end
 end

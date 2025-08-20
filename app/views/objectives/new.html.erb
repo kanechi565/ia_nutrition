@@ -1,10 +1,10 @@
-<div class="container w-50 mt-5">
+<div class="objective-form-container">
   <h1>Crée ton objectif</h1>
 
   <%= simple_form_for @objective do |f| %>
     <%= f.input :name,
                 label: "Nom de l'objectif",
-                input_html: { class: "border border-dark" } %>
+                input_html: { class: "custom-input" } %>
 
     <%= f.input :description,
                 label: "Choisis ton objectif",
@@ -12,12 +12,12 @@
                   "Je souhaite suivre un programme adapté pour favoriser ma perte de poids.",
                   "Mon objectif principal en ce moment est la prise de masse musculaire.",
                   "Étant végétarien, je recherche des repas équilibrés sans viande ni poisson.",
-                  "Mon alimentation est entièrement vegan, je ne consomme donc aucun produit d’origine animale.",
-                  "Un planning de repas hebdomadaire m’aiderait à mieux organiser mon alimentation.",
-                  "Je me considère flexitarien, car je limite la viande mais j’en consomme encore occasionnellement."
+                  "Mon alimentation est entièrement vegan, je ne consomme donc aucun produit d'origine animale.",
+                  "Un planning de repas hebdomadaire m'aiderait à mieux organiser mon alimentation.",
+                  "Je me considère flexitarien, car je limite la viande mais j'en consomme encore occasionnellement."
                 ],
-                input_html: { class: "border border-dark" } %>
+                input_html: { class: "custom-select" } %>
 
-    <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
+    <%= f.button :submit, "Enregistrer", class: "custom-btn" %>
   <% end %>
 </div>

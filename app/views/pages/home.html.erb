@@ -18,22 +18,22 @@
 
 <div class="container text-center ">
   <div class="row align-items-center">
-    <div class="col-md-6 text-md-start text-center">
+    <div class="content col-md-6 text-md-start text-center">
       <h2>Votre guide nutrition et bien-être</h2>
       <p>
         Obtenez votre programme personnalisé
         et commencez votre parcours vers une
         vie plus saine et plus épanouie
       </p>
-      <div class="btn-commencer">
+      <div>
         <%= link_to "Commencer", new_objective_path,
-            class: "btn btn-primary btn-lg px-5 py-3" %>
+            class: "btn" %>
       </div>
     </div>
 
     <div class="col-md-6">
-      <%= image_tag "nutrition_ai_logo.png",
-          alt: "AI Nutrition Home",
+      <%= image_tag "home-image.jpg",
+          alt: "Home Image",
           class: "img-fluid" %>
     </div>
   </div>

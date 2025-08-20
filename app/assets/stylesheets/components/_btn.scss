@@ -1,0 +1,11 @@
+.btn {
+  text-decoration: none;
+  background-color: $green;
+  color: white;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: $dark_green;
+  color: white;
+}

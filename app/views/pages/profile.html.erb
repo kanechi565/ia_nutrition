@@ -1,0 +1,19 @@
+<div class="profile-container max-w-lg mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg}">
+  <h1>Mon Profil</h1>
+
+  <div class="profile-card space-y-2 text-gray-700 ">
+  <br>
+  <h2>Mes informations personelle </h2>
+  <br>
+    <p><strong>Nom :</strong> <%= @user.name %></p>
+    <p><strong>Email :</strong> <%= @user.email %></p>
+    <p><strong>Âge :</strong> <%= @user.age %> ans</p>
+    <p><strong>Taille :</strong> <%= @user.height %> cm</p>
+    <p><strong>Poids :</strong> <%= @user.weight %> kg</p>
+    <%# <p><strong>Sport :</strong> <%= @user.goal %></p>
+  </div>
+
+  <div class="actions">
+    <%= link_to "supprimer", _path, class: "btn btn-primary mt-4 inline-block bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600" %>
+  </div>
+</div>

@@ -1,0 +1,254 @@
+.chat-container {
+  position: fixed;
+  top: 66px; // Ajuste selon la hauteur de ta navbar
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 66px); // Soustrait la hauteur de la navbar
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  overflow: hidden;
+
+  // Le reste de ton CSS reste identique...
+
+  .chat-header {
+    flex-shrink: 0; // Empêche la compression
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, rgba($green, 0.08), rgba($green, 0.12));
+    border-bottom: 1px solid rgba($green, 0.25);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    h1 {
+      color: $green;
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+
+  .messages-container {
+    flex: 1; // Prend tout l'espace disponible
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to bottom, #fafafa 0%, #f8f8f8 100%);
+
+    // Scroll personnalisé
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba($green, 0.3);
+      border-radius: 3px;
+
+      &:hover {
+        background: rgba($green, 0.5);
+      }
+    }
+
+    .message {
+      display: flex;
+      margin-bottom: 2rem;
+      max-width: 85%;
+      animation: fadeInUp 0.3s ease-out;
+
+      &.user {
+        margin-left: auto;
+        flex-direction: row-reverse;
+
+        .message-content {
+          background: linear-gradient(135deg, rgba($green, 0.12), rgba($green, 0.08));
+          border: 1px solid rgba($green, 0.25);
+          border-radius: 20px 20px 6px 20px;
+          box-shadow: 0 2px 8px rgba($green, 0.15);
+        }
+
+        .message-avatar {
+          background: linear-gradient(135deg, $green, lighten($green, 10%));
+          color: white;
+          margin-left: 1rem;
+          margin-right: 0;
+        }
+      }
+
+      &.assistant {
+        margin-right: auto;
+
+        .message-content {
+          background: white;
+          border: 1px solid #e8e8e8;
+          border-radius: 20px 20px 20px 6px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .message-avatar {
+          background: linear-gradient(135deg, #6c757d, #8d99a6);
+          color: white;
+          margin-right: 1rem;
+          margin-left: 0;
+        }
+      }
+
+      .message-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .message-content {
+        padding: 1.2rem 1.5rem;
+        position: relative;
+        max-width: calc(100vw - 200px); // Responsive
+
+        .message-role {
+          font-weight: 600;
+          font-size: 0.8rem;
+          color: $green;
+          margin-bottom: 0.6rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .message-text {
+          line-height: 1.6;
+          color: #2c3e50;
+          font-size: 0.95rem;
+
+          p {
+            margin: 0 0 0.8rem 0;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+
+          // Style pour le markdown
+          code {
+            background-color: rgba($green, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+          }
+
+          pre {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid $green;
+          }
+        }
+      }
+    }
+  }
+
+  .chat-input-container {
+    flex-shrink: 0; // Empêche la compression
+    padding: 1.5rem 2rem 2rem;
+    background: white;
+    border-top: 1px solid rgba($green, 0.2);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+
+    .form-group {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 1.2rem 1.5rem;
+      border: 2px solid rgba($green, 0.25);
+      border-radius: 16px;
+      font-size: 1rem;
+      resize: none;
+      min-height: 60px;
+      max-height: 120px;
+      background-color: #fafafa;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: inherit;
+
+      &:focus {
+        outline: none;
+        border-color: $green;
+        background-color: white;
+        box-shadow: 0 0 0 4px rgba($green, 0.12);
+        transform: translateY(-1px);
+      }
+
+      &::placeholder {
+        color: #999;
+        font-style: italic;
+      }
+    }
+
+    .chat-submit-btn {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, $green, darken($green, 5%));
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba($green, 0.3);
+
+      &:hover {
+        background: linear-gradient(135deg, darken($green, 5%), darken($green, 10%));
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba($green, 0.4);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba($green, 0.3);
+      }
+    }
+  }
+}
+
+// Animation pour les nouveaux messages
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .chat-container {
+    .messages-container {
+      padding: 1rem;
+
+      .message {
+        max-width: 95%;
+
+        .message-content {
+          max-width: calc(100vw - 100px);
+        }
+      }
+    }
+
+    .chat-input-container {
+      padding: 1rem;
+    }
+  }
+}

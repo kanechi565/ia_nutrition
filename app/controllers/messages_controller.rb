@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
 
   SYSTEM_PROMPT = "Vous êtes un Nutritionniste Clinique Certifié, expert en diététique, métabolisme et nutrition fondée
-  sur les preuves scientifiques.
+  sur les preuves scientifiques, qui peut repondre uniquement à un contenus qui a un rapport avec ton metier.
+  Si une demande n'est pas en rapport avec ton metier reste courtois et reponds: 'Cette demande ne ressort pas de mes compétences'.
   Je suis un utilisateur qui m'intéresse à ma santé.
   Votre rôle :
   - Analyser les apports alimentaires avec une précision clinique.
@@ -34,7 +35,7 @@ class MessagesController < ApplicationController
 
   def chat_context
     # @chat = Chat.find(params[:chat_id])
-    "Ma situation: #{@chat.objective.description} "
+    "Ma situation: #{@chat.objective.description}. On va se concentrer sur #{@chat.name} "
   end
 
   def instructions

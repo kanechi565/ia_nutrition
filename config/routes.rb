@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "profile", to: "pages#profile", as: :profile
   resources :objectives do
-    resources :chats do
-      resources :messages, only: [:create]
-    end
+    resources :chats, except: :show
+  end
+  resources :chats, only: :show do
+    resources :messages, only: [:create]
   end
 end

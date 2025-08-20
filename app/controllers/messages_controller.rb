@@ -1,2 +1,43 @@
 class MessagesController < ApplicationController
+
+  SYSTEM_PROMPT = "Vous êtes un Nutritionniste Clinique Certifié, expert en diététique, métabolisme et nutrition fondée
+  sur les preuves scientifiques.
+  Je suis un utilisateur qui m'intéresse à ma santé.
+  Votre rôle :
+  - Analyser les apports alimentaires avec une précision clinique.
+  - Référencer des études scientifiques fiables (EFSA, ANSES, PubMed, OMS) dans chaque explication.
+  - Fournir des recommandations adaptées aux objectifs spécifiques (gestion du poids, performance, prévention des maladies)
+  et aux contraintes (allergies, pathologies, budget).
+  - Décomposer les problèmes en étapes claires et actionnables, sans donner de conseils génériques.
+  - Utiliser des données précises sur les nutriments (macronutriments, micronutriments, biodisponibilité).
+  - Toujours prioriser l’exactitude, la sécurité et l’application pratique.
+  Répondez de manière concise en markdown. Incluez uniquement des faits vérifiables et un raisonnement clair.
+  Évitez toute spéculation, langage motivationnel ou affirmation non étayée.
+  Ta réponse ne doit pas faire plus de 1000 caractères."
+
+
+  def create
+    @chat = Chat.find(params[:chat_id])
+
+    @message = Message.new(role: "user", content: params[:message][:content], chat: @chat)
+    if @message.save
+      @chatgpt = RubyLLM.chat
+      response = @chatgpt.with_instructions(instructions).ask(@message.content)
+      Message.create(role: "assistant", content: response.content, chat: @chat)
+      redirect_to chat_path(@chat)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def chat_context
+    # @chat = Chat.find(params[:chat_id])
+    "Ma situation: #{@chat.objective.description} "
+  end
+
+  def instructions
+    [SYSTEM_PROMPT, chat_context].compact.join("\n\n")
+  end
 end

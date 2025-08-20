@@ -1,6 +1,6 @@
 class ObjectivesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_objective, only: [:show]
+  before_action :set_objective, only: [:show, :destroy]
   def index
     @objectives = current_user.objectives
   end
@@ -20,6 +20,12 @@ class ObjectivesController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @objective.chats.destroy_all
+    @objective.destroy
+    redirect_to objectives_path
   end
 
   private

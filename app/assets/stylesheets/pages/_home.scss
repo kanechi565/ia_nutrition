@@ -1,7 +1,18 @@
-// Specific CSS for your home-page
-.btn-commencer{
-  position:absolute;
-  top: 60%;
-  left: 30%;
-  width: auto;
+.container {
+  min-height: calc(100vh - 66px);
+  display: flex;
+  align-items: center;
+}
+
+.img-fluid {
+  width: 400px;
+  border-radius: 10px;
+}
+
+.content h2 {
+  margin-bottom: 30px;
+}
+
+.content p {
+  margin-bottom: 20px;
 }

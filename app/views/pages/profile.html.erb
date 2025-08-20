@@ -3,10 +3,10 @@
 
   <div class="profile-card space-y-2 text-gray-700 ">
   <br>
-  <h2>Mes informations personelle </h2>
+
   <br>
     <div class="card-body text-center">
-      <h4 class="card-title mb-3">Mes informations personnelles</h4>
+      <h2 class="card-title mb-3">Mes informations personnelles</h2>
       <ul class="list-group list-group-flush text-start">
         <li class="list-group-item"><strong>Nom :</strong> <%= @user.name %></li>
         <li class="list-group-item"><strong>Email :</strong> <%= @user.email %></li>
@@ -17,7 +17,6 @@
       </ul>
     </div>
   <div class="actions">
-
+   <%= link_to "Modifier mes informations", edit_user_registration_path(@user), class: "btn btn-sucess" %>
   </div>
 </div>
-

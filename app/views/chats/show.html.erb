@@ -1,13 +1,36 @@
-<h1><%= @chat.name %></h1>
+<div class="chat-container">
+  <div class="chat-header">
+    <h1><%= @chat.name %></h1>
+  </div>
 
-<% @chat.messages.each do |message| %>
-  <p>
-    <strong><%= message.role %></strong>
-    <%= raw(render_markdown(message.content)) %>
-  </p>
-<% end %>
+  <div class="messages-container">
+    <% @chat.messages.each do |message| %>
+      <div class="message <%= message.role.downcase %>">
+        <div class="message-avatar">
+          <% if message.role == "user" %>
+            👤
+          <% else %>
+            🤖
+          <% end %>
+        </div>
+        <div class="message-content">
+          <div class="message-role"><%= message.role %></div>
+          <div class="message-text">
+            <%= raw(render_markdown(message.content)) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<%= simple_form_for [@chat, @message] do |f| %>
-  <%= f.input :content, placeholder: "Posez votre question", required: true %>
-  <%= f.button :submit, 'Submit', class: 'btn btn-primary' %>
-<% end %>
+  <div class="chat-input-container">
+    <%= simple_form_for [@chat, @message] do |f| %>
+      <%= f.input :content,
+                  placeholder: "Posez votre question...",
+                  required: true,
+                  label: false,
+                  input_html: { class: "chat-input", rows: 3 } %>
+      <%= f.button :submit, 'Envoyer', class: 'chat-submit-btn' %>
+    <% end %>
+  </div>
+</div>

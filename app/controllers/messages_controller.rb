@@ -27,23 +27,10 @@ class MessagesController < ApplicationController
       Message.create(role: "assistant", content: response.content, chat: @chat)
 
       @chat.generate_title_from_first_message if @chat.name == "Pas de titre"
-
-      respond_to do |format|
-        format.turbo_stream
-        format.html { redirect_to chat_path(@chat) }
-      end
+      redirect_to chat_path(@chat)
 
     else
-      respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          "new_message",
-        partial: "messages/form",
-        locals: { chat: @chat, message: @message }
-        )
-      end
-      format.html { render :new, status: :unprocessable_entity }
-    end
+      render "chats/show", status: :unprocessable_entity
     end
   end
 

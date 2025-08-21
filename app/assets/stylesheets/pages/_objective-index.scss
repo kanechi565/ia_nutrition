@@ -1,9 +1,133 @@
+.position-relative {
+  width: 18rem;
+  min-height: 200px;
+}
+
+.objective-list {
+  margin-bottom: 30px;
+}
+
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: rgba($green, 0.05);
   border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #212529;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  border: none
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0px
+}
+
+.card-loss {
+  background-color: rgba(#1e3429, 0.6);
+}
+
+.card-gain {
+  background-color: rgba(#3a5a40, 0.5);
+}
+
+.card-veg {
+  background-color: rgba(#588157, 0.3);
+}
+
+.card-vegan {
+  background-color: rgba(#a3b18a, 0.5);
+}
+
+.card-planning {
+  background-color: rgba(#dad7cd, 0.5);
+}
+
+.card-flexi {
+  background-color: rgba(#fefae0, 0.5);
+}
+
+.card-title {
+  margin: 10px;
+  font-family: $title;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.card-text {
+  font-family: $content;
+  font-weight: 300;
+  font-size: 17px;
+}
+
+.add-objective {
+  display: flex;
+  justify-content: end;
 }
 
 .btn-objective {
   margin: 20px 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-sm {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  color: $green;
+  border: none;
+  z-index: 2;
+  transition: inherit;
+}
+
+.fa-weight-scale::before {
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 0.5rem;
+}
+
+.fa-dumbbell::before {
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 0.5rem;
+}
+
+.fa-carrot::before {
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 0.5rem;
+}
+
+.fa-leaf::before {
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 0.5rem;
+}
+
+.fa-calendar::before {
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 0.5rem;
+}
+
+.fa-drumstick-bite::before {
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 0.5rem;
 }

@@ -1,40 +1,24 @@
 
+  <div class="row nav-top" data-controller="toggle">
+    <nav class="col-md-2 sidebar" data-toggle-target="hideable">
+      <%= render "shared/sidenav", chats: @chats, objective: @objective %>
 
+    </nav>
+    <%= link_to "#", class: "d-none nav-link text-dark m-4",
+        data: {action: "click->toggle#call", toggle_target: "show"} do %>
+          <ul class="position-sticky sticky-top nav flex-column">
+            <li class="nav-item">
+              <i class="fas fa-bars"></i>
+            </li>
+          </ul>
+        <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
 
 <div class="chat-container">
   <div class="chat-header">
     <h1><%= @chat.name %></h1>
   </div>
-
   <div class="messages-container">
     <% @chat.messages.each do |message| %>
       <div class="message <%= message.role.downcase %>">

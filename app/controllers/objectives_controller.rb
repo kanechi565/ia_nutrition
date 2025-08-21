@@ -4,6 +4,7 @@ class ObjectivesController < ApplicationController
 
   def index
     @objectives = current_user.objectives
+    
   end
 
   def new

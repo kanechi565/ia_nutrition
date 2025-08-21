@@ -1,0 +1,19 @@
+
+<ul class="position-sticky sticky-top nav flex-column sidenav">
+  <li class="nav-item header-sidenav">
+    <%= link_to "#", class: "nav-link text-dark", data: { action: "click->toggle#call" } do %>
+      <i class="fas fa-bars"></i>
+    <% end %>
+    <%= link_to "Nouveau chat", new_objective_chat_path(objective), class: "nav-link text-dark" %>
+  </li>
+  <% chats.each do |chat| %>
+    <li class="nav-item">
+      <%= link_to chat.name, chat_path(chat), class: "nav-link text-dark " %>
+      <% if objective.chats.count > 1 %>
+        <%= link_to chat_path(chat),  data: { turbo_method: :delete }  do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

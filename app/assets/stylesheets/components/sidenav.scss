@@ -1,0 +1,25 @@
+.nav-link {
+  z-index: 500;
+}
+
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.nav-top {
+  margin-top: -9px;
+}

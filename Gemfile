@@ -79,3 +79,4 @@ gem "devise"
 # llm ia gem
 gem "ruby_llm"
 gem "font-awesome-sass", "~> 6.1.1"
+

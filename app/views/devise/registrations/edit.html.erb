@@ -1,7 +1,7 @@
-<div class="profile-container max-w-lg mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
+<div class="profile-container">
   <h1 class="text-center">Modifier mon profil</h1>
 
-  <div class="profile-card space-y-2 text-gray-700">
+  <div class="profile-card ">
     <br>
     <div class="card-body text-center">
       <h2 class="card-title mb-3">Mes informations personnelles</h2>
@@ -12,15 +12,21 @@
         <div class="form-inputs">
 
           <%# Ordre important par rapport à ApplicationController [:photo, :gender, :height, :weight, :age] %>
-          <div class="form-group">
-            <%= f.label :photo, "Photo de profil" %>
-            <%= f.file_field :photo, class: "form-control" %>
-          </div>
+            <div class="form-group text-center">
+              <%= f.label :photo, "Photo de profil" %><br>
+              <% if resource.photo.attached? %>
+                <%= image_tag resource.photo.variant(resize_to_fill: [40, 40]),
+                              class: "rounded-circle mb-2",
+                              alt: "Photo de profil" %>
+              <% else %>
+                <%= image_tag "empty_avatar.png",
+                              class: "rounded-circle mb-2",
+                              width: 40, height: 40,
+                              alt: "Photo de profil vide" %>
+              <% end %>
 
-          <div class="form-actions mt-3">
-            <%= f.submit "Mettre à jour", class: "btn btn-success" %>
-          </div>
-
+              <%= f.file_field :photo, class: "form-control" %>
+            </div>
           <br>
 
           <%= f.input :gender, as: :select, collection: ["Homme", "Femme", "Autre"], prompt: "Sélectionnez votre genre", label: "Genre" %>
@@ -43,7 +49,7 @@
         </div>
 
         <div class="form-actions mt-3">
-          <%= f.submit "Update", class: "btn btn-success w-100" %>
+          <%= f.button :submit, "Mettre a jour", class: "custom-btn" %>
         </div>
       <% end %>
 

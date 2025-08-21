@@ -16,18 +16,34 @@ class MessagesController < ApplicationController
   Évitez toute spéculation, langage motivationnel ou affirmation non étayée.
   Ta réponse ne doit pas faire plus de 1000 caractères."
 
-
   def create
     @chat = Chat.find(params[:chat_id])
-
     @message = Message.new(role: "user", content: params[:message][:content], chat: @chat)
+
     if @message.save
       @chatgpt = RubyLLM.chat
+
       response = @chatgpt.with_instructions(instructions).ask(@message.content)
       Message.create(role: "assistant", content: response.content, chat: @chat)
-      redirect_to chat_path(@chat)
+
+      @chat.generate_title_from_first_message if @chat.name == "Pas de titre"
+
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to chat_path(@chat) }
+      end
+
     else
-      render :new
+      respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          "new_message",
+        partial: "messages/form",
+        locals: { chat: @chat, message: @message }
+        )
+      end
+      format.html { render :new, status: :unprocessable_entity }
+    end
     end
   end
 

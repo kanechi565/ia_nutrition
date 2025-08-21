@@ -1,6 +1,7 @@
 class ObjectivesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_objective, only: [:show, :destroy]
+
   def index
     @objectives = current_user.objectives
   end
@@ -12,8 +13,12 @@ class ObjectivesController < ApplicationController
   def create
     @objective = Objective.new(objective_params)
     @objective.user = current_user
-    if @objective.save!
-      redirect_to objective_path(@objective), notice: "Objectif crée"
+    @chat = Chat.new(name: "Pas de titre")
+    @chat.objective = @objective
+    if @objective.save
+      # Créer le chat vide avec titre temporair
+      @chat.save
+      redirect_to chat_path(@chat)
     else
       render :new, status: :unprocessable_entity
     end

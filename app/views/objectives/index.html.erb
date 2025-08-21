@@ -25,9 +25,9 @@
     end %>
 
     <div class="position-relative" style="width: 18rem; min-height: 200px;">
-      <%= link_to objective_path(objective), class: card_class do %>
+      <%= link_to chat_path(objective.chats.last), class: card_class do %>
         <div class="card-body d-flex flex-column justify-content-center align-items-center">
-          <h5 class="card-title"><%= objective.name %></h5>
+          <h5 class="card-title"><%= objective.chats.last.name %></h5>
           <p class="card-text"><%= objective.description %></p>
         </div>
       <% end %>

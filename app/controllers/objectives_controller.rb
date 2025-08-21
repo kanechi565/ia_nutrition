@@ -31,7 +31,7 @@ class ObjectivesController < ApplicationController
   private
 
   def objective_params
-    params.require(:objective).permit(:name, :description)
+    params.require(:objective).permit(:name, :description, :photo)
   end
 
   def set_objective

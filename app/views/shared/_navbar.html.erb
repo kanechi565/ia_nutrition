@@ -22,8 +22,8 @@
             <%# pour dire que tout ce qui est à l’intérieur devient cliquable on utilisera un link_to MON_CHEMIN do suivie de ce qu'on veux rendre cliquable . %>
             <%= link_to profile_path do %>
               <% if current_user.photo.attached? %>
-                  <%= image_tag current_user.photo.variant(resize_to_fill: [40, 40]),
-                                class: "rounded-circle border ",
+                  <%= cl_image_tag current_user.photo.key,
+                                class: "avatar",
                                 alt: "Photo de profil" %>
                 <% else %>
                   <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center" style="width:40px; height:40px;">

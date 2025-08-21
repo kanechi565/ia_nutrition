@@ -13,20 +13,19 @@
 
           <%# Ordre important par rapport à ApplicationController [:photo, :gender, :height, :weight, :age] %>
             <div class="form-group text-center">
-              <%= f.label :photo, "Photo de profil" %><br>
-              <% if resource.photo.attached? %>
-                <%= image_tag resource.photo.variant(resize_to_fill: [40, 40]),
-                              class: "rounded-circle mb-2",
-                              alt: "Photo de profil" %>
-              <% else %>
-                <%= image_tag "empty_avatar.png",
-                              class: "rounded-circle mb-2",
-                              width: 40, height: 40,
-                              alt: "Photo de profil vide" %>
-              <% end %>
+              <div class="form-group text-center">
+                <%= f.label :photo, "Photo de profil" %><br>
 
-              <%= f.file_field :photo, class: "form-control" %>
-            </div>
+                <% if resource.photo.attached? %>
+                  <%= cl_image_tag resource.photo.key,
+                                class: "avatar",
+                                alt: "Photo de profil" %>
+                <% else %>
+                  <div class="rounded-circle bg-light d-inline-block mb-2"
+                      style="width: 150px; height: 150px;"></div>
+                <% end %>
+                <%= f.input :photo, as: :file, class: "form-control" %>
+              </div>
           <br>
 
           <%= f.input :gender, as: :select, collection: ["Homme", "Femme", "Autre"], prompt: "Sélectionnez votre genre", label: "Genre" %>

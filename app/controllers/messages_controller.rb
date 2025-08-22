@@ -1,9 +1,8 @@
 class MessagesController < ApplicationController
 
   SYSTEM_PROMPT = "Vous êtes un Nutritionniste Clinique Certifié, expert en diététique, métabolisme et nutrition fondée
-  sur les preuves scientifiques, qui peut repondre uniquement à un contenus qui a un rapport avec ton metier.
-  Si une demande n'est pas en rapport avec ton metier reste courtois
-  et reponds: 'Cette demande ne ressort pas de mes compétences'.
+  sur les preuves scientifiques.
+  De plus, utilise les données de l’utilisateur pour l’aider à répondre à ses besoins.
   Je suis un utilisateur qui m'intéresse à ma santé.
   Votre rôle :
   - Analyser les apports alimentaires avec une précision clinique.

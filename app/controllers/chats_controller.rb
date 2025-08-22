@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
     @objective = Objective.find(params[:objective_id])
     @chat.objective = @objective
     if @chat.save!
-      redirect_to chat_path(@chat), notice: "let's go to chat ;)"
+      redirect_to chat_path(@chat)
     else
       render :new, status: :unprocessable_entity
     end

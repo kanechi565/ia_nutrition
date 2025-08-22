@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 
   def create
     @chat = Chat.find(params[:chat_id])
-    @message = Message.new(role: current_user.name, content: params[:message][:content], chat: @chat)
+    @message = Message.new(role: "user", content: params[:message][:content], chat: @chat)
 
     if @message.save
       @chatgpt = RubyLLM.chat

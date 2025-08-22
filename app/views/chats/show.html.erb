@@ -1,8 +1,6 @@
 
   <div class="row nav-top" data-controller="toggle">
 
-    <nav class="d-none col-md-2 sidebar" data-toggle-target="hideable">
-      <%= render "shared/sidenav", chats: @chats, objective: @objective %>
     <nav class="col-md-2 sidebar" data-toggle-target="hideable">
       <%= render "shared/sidenav", chats: @chats, objective: @objective, new_chat: @new_chat %>
 

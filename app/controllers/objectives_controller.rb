@@ -1,10 +1,10 @@
 class ObjectivesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_objective, only: [:show, :destroy]
+  before_action :set_objective, only: [:destroy]
 
   def index
     @objectives = current_user.objectives
-    
+
   end
 
   def new
@@ -23,9 +23,6 @@ class ObjectivesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
   end
 
   def destroy

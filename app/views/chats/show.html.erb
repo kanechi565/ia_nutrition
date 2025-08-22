@@ -16,9 +16,6 @@
   </div>
 
 <div class="chat-container">
-  <div class="chat-header">
-    <h1><%= @chat.name %></h1>
-  </div>
   <div class="messages-container">
     <% @chat.messages.each do |message| %>
       <div class="message <%= message.role.downcase %>">
@@ -46,7 +43,7 @@
                   required: true,
                   label: false,
                   input_html: { class: "chat-input", rows: 3 } %>
-      <%= f.button :submit, 'Envoyer', class: 'chat-submit-btn'%>
+      <%= f.button :submit, 'Envoyer', class: 'chat-submit-btn mb-3'%>
     <% end %>
   </div>
 </div>

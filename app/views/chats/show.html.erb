@@ -1,10 +1,10 @@
 
   <div class="row nav-top" data-controller="toggle">
-    <nav class="col-md-2 sidebar" data-toggle-target="hideable">
+    <nav class="d-none col-md-2 sidebar" data-toggle-target="hideable">
       <%= render "shared/sidenav", chats: @chats, objective: @objective %>
 
     </nav>
-    <%= link_to "#", class: "d-none nav-link text-dark m-4",
+    <%= link_to "#", class: "nav-link text-dark m-4",
         data: {action: "click->toggle#call", toggle_target: "show"} do %>
           <ul class="position-sticky sticky-top nav flex-column">
             <li class="nav-item">

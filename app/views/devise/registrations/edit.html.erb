@@ -1,7 +1,7 @@
-<div class="profile-container">
+<div class="profile-container max-w-lg mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg}">
   <h1 class="text-center">Modifier mon profil</h1>
 
-  <div class="profile-card ">
+  <div class="profile-card">
     <br>
     <div class="card-body text-center">
       <h2 class="card-title mb-3">Mes informations personnelles</h2>
@@ -10,24 +10,27 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-
           <%# Ordre important par rapport à ApplicationController [:photo, :gender, :height, :weight, :age] %>
-            <div class="form-group text-center">
-              <div class="form-group text-center">
-                <%= f.label :photo, "Photo de profil" %><br>
+          <div class="form-group text-center">
+            <%= f.label :photo, "Photo de profil" %><br>
 
-                <% if resource.photo.attached? %>
-                  <%= cl_image_tag resource.photo.key,
-                                class: "avatar",
-                                alt: "Photo de profil" %>
-                <% else %>
-                  <div class="rounded-circle bg-light d-inline-block mb-2"
-                      style="width: 150px; height: 150px;"></div>
-                <% end %>
-                <%= f.input :photo, as: :file, class: "form-control" %>
-              </div>
+              <% if resource.photo.attached? %>
+                <%= cl_image_tag resource.photo.key, class: "avatar", alt: "Photo de profil" %>
+                <br>
+                <%= link_to "Supprimer la photo",
+                            destroy_photo_path,
+                            data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer votre photo ?" },
+                            class: "btn btn-danger mt-2" %>
+              <% else %>
+                <div class="rounded-circle bg-light d-inline-block mb-2"
+                    style="width: 150px; height: 150px;"></div>
+              <% end %>
+
+            <%= f.input :photo, as: :file, class: "form-control" %>
+          </div>
           <br>
 
+          <%= f.input :name, label: "Nom" %>
           <%= f.input :gender, as: :select, collection: ["Homme", "Femme", "Autre"], prompt: "Sélectionnez votre genre", label: "Genre" %>
           <%= f.input :height, label: "Taille (cm)" %>
           <%= f.input :weight, label: "Poids (kg)" %>
@@ -40,23 +43,20 @@
           <% end %>
 
           <%= f.input :current_password,
-            label: "Mot de passe actuel",
-            hint: "Nous avons besoin de votre mot de passe actuel pour confirmer vos modifications",
-            required: true,
-            input_html: { autocomplete: "current-password" } %>
-
+                      label: "Mot de passe actuel",
+                      hint: "Nous avons besoin de votre mot de passe actuel pour confirmer vos modifications",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
         </div>
 
         <div class="form-actions mt-3">
           <%= f.button :submit, "Mettre a jour", class: "custom-btn" %>
         </div>
       <% end %>
-
     </div>
 
     <div class="actions">
       <!-- Actions supplémentaires si besoin -->
     </div>
-
   </div>
 </div>

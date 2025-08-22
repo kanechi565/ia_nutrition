@@ -1,7 +1,7 @@
 
   <div class="row nav-top" data-controller="toggle">
     <nav class="col-md-2 sidebar" data-toggle-target="hideable">
-      <%= render "shared/sidenav", chats: @chats, objective: @objective %>
+      <%= render "shared/sidenav", chats: @chats, objective: @objective, new_chat: @new_chat %>
 
     </nav>
     <%= link_to "#", class: "d-none nav-link text-dark m-4",
@@ -16,9 +16,6 @@
   </div>
 
 <div class="chat-container">
-  <div class="chat-header">
-    <h1><%= @chat.name %></h1>
-  </div>
   <div class="messages-container">
     <% @chat.messages.each do |message| %>
       <div class="message <%= message.role.downcase %>">
@@ -46,7 +43,7 @@
                   required: true,
                   label: false,
                   input_html: { class: "chat-input", rows: 3 } %>
-      <%= f.button :submit, 'Envoyer', class: 'chat-submit-btn'%>
+      <%= f.button :submit, 'Envoyer', class: 'chat-submit-btn mb-3'%>
     <% end %>
   </div>
 </div>

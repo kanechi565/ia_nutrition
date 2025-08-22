@@ -4,7 +4,9 @@
     <%= link_to "#", class: "nav-link text-dark", data: { action: "click->toggle#call" } do %>
       <i class="fas fa-bars"></i>
     <% end %>
-    <%= link_to "Nouveau chat", new_objective_chat_path(objective), class: "nav-link text-dark" %>
+    <%= simple_form_for [objective, new_chat] do |f| %>
+      <%= f.button :submit, "Nouveau chat", class: "btn btn-primary" %>
+    <% end %>
   </li>
   <% chats.each do |chat| %>
     <li class="nav-item">

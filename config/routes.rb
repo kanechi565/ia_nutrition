@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get "profile", to: "pages#profile", as: :profile
+
   delete "profile/photo", to: "pages#destroy_photo", as: :destroy_photo
   resources :objectives do
+  resources :objectives, only: [:new, :create, :destroy, :index] do
     resources :chats, except: [:show]
   end
   resources :chats, only: :show do

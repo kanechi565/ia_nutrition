@@ -20,34 +20,44 @@ user2 = User.create!(name: 'Charles', email: "Charles@gmail.com", password: "pas
 
 puts "reation d'objectif"
 
-Objective.create!(
+objective1 = Objective.create!(
   name: "Perte de poids",
   description: "Je souhaite suivre un programme adapté pour favoriser ma perte de poids.",
   user: user1
 )
-Objective.create!(
+objective2 = Objective.create!(
   name: "Prise de masse",
   description: "Mon objectif principal en ce moment est la prise de masse musculaire.",
   user: user1
 )
-Objective.create!(
+objective3 = Objective.create!(
   name: "Végétarien",
   description: "Étant végétarien, je recherche des repas équilibrés sans viande ni poisson.",
   user: user2
 )
-Objective.create!(
+objective4 = Objective.create!(
   name: "Vegan",
   description: "Mon alimentation est entièrement vegan, je ne consomme donc aucun produit d’origine animale.",
   user: user1
 )
-Objective.create!(
+objective5 = Objective.create!(
   name: "Planning repas",
   description: "Un planning de repas hebdomadaire m’aiderait à mieux organiser mon alimentation.",
   user: user2
 )
-Objective.create!(
+objective6 = Objective.create!(
   name: "Flexitarien",
   description: "Je me considère flexitarien, car je limite la viande mais j’en consomme encore occasionnellement",
   user: user1
 )
+
+
+puts 'seed chats'
+
+Chat.create!(name: 'je veux perdre du poids', objective: objective1)
+Chat.create!(name: 'je veux prendre du muscle', objective: objective2)
+Chat.create!(name: 'je veux manger végétarien', objective: objective3)
+Chat.create!(name: 'je veux suivre un régime vegan', objective: objective4)
+Chat.create!(name: 'je veux un planning repas', objective: objective5)
+Chat.create!(name: 'je veux manger flexitarien', objective: objective6)
 puts "seeds done"

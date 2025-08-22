@@ -154,69 +154,29 @@
     }
   }
 
-  .chat-input-container {
-    flex-shrink: 0; // Empêche la compression
-    padding: 1.5rem 2rem 2rem;
-    background: white;
-    border-top: 1px solid rgba($green, 0.2);
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
 
-    .form-group {
-      margin-bottom: 1rem;
-      position: relative;
-    }
+  .chat-input {
+    height: 50px;
+    width: 860px;
+    resize: none;
+    box-sizing: border-box;
+    margin: 15px;
+    border-radius: 20px;
+    padding: 10px
+  }
 
-    .chat-input {
-      width: 100%;
-      padding: 1.2rem 1.5rem;
-      border: 2px solid rgba($green, 0.25);
-      border-radius: 16px;
-      font-size: 1rem;
-      resize: none;
-      min-height: 60px;
-      max-height: 120px;
-      background-color: #fafafa;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      font-family: inherit;
+  .chat-submit-btn {
+    padding: 10px 16px;
+  }
 
-      &:focus {
-        outline: none;
-        border-color: $green;
-        background-color: white;
-        box-shadow: 0 0 0 4px rgba($green, 0.12);
-        transform: translateY(-1px);
-      }
-
-      &::placeholder {
-        color: #999;
-        font-style: italic;
-      }
-    }
-
-    .chat-submit-btn {
-      width: 100%;
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, $green, darken($green, 5%));
-      color: white;
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 12px rgba($green, 0.3);
-
-      &:hover {
-        background: linear-gradient(135deg, darken($green, 5%), darken($green, 10%));
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba($green, 0.4);
-      }
-
-      &:active {
-        transform: translateY(0);
-        box-shadow: 0 2px 8px rgba($green, 0.3);
-      }
-    }
+  .nav-top{
+    width: 50%;
   }
 }
 

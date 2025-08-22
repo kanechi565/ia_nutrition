@@ -77,7 +77,7 @@ end
 # authentification
 gem "devise"
 # llm ia gem
-gem "ruby_llm"
+gem "ruby_llm", git: 'https://github.com/SuzukiRyuichiro/ruby_llm.git'
 gem "font-awesome-sass", "~> 6.1.1"
 gem "cloudinary"
 gem 'activestorage-cloudinary-service'

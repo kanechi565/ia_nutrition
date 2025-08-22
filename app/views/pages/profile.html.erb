@@ -5,8 +5,8 @@
   <br>
 
   <br>
-<div class="form-inputs">
-  
+<div class="form-inputs profile-card">
+
   <div style="width: 200px; height: 200px;">
     <% if @user.photo.attached? %>
   <%= cl_image_tag @user.photo.key,
@@ -22,7 +22,7 @@
   <br>
 
   <%# Infos utilisateur à droite %>
-  <ul class="list-group list-group-flush text-center">
+  <ul class="list-group list-group-flush text-center w-100">
     <li class="list-group-item"><strong>Nom :</strong> <%= @user.name %></li>
     <li class="list-group-item"><strong>Email :</strong> <%= @user.email %></li>
     <li class="list-group-item"><strong>Âge :</strong> <%= @user.age %> ans</li>

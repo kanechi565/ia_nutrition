@@ -39,9 +39,10 @@ class MessagesController < ApplicationController
   private
 
   def chat_context
+    @user =
     # @chat = Chat.find(params[:chat_id])
-    "Ma situation: #{@chat.objective.description}. On va se concentrer sur #{@chat.name}, #{@chat.height},
-     #{@chat.weight}, #{@chat.gender}, #{@chat.age} "
+    "Ma situation: #{@chat.objective.description}. On va se concentrer sur #{@chat.name}, #{@chat.objective.user.height},
+     #{@chat.objective.user.weight}, #{@chat.objective.user.gender}, #{@chat.objective.user.age} "
   end
 
   def instructions
